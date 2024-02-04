@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable = no">
+    <title>Thunderegg Records</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu">
+        <a class="logo" href="index.html">THUNDEREGG RECORDS</a>
+        <menuItems>
+            <ul><a href="bands.html">BANDS</a></ul>
+            <ul><a href="newsletter.html">NEWS</a></ul>
+            <ul><a href="volunteer.html">VOLUNTEER</a></ul>
+            <ul><a href="about.html">ABOUT</a></ul>
+        </menuItems>
+    </div>
+    <div class="slideshow-container">
+        <div class="slideshow">
+          <div class="slide">
+            <img src="grrl.jpg" alt="Slide 1">
+            <a href="grrl.html" class="slide-text-left" class="underline">GRRL BAND</a>
+            <div class="text-box">
+                <p class="slide-text-right">Grrl Band, the electrifying sensation hailing from the vibrant musical hub of Eugene, Oregon. They continue to ignite stages and captivate audiences with their raw energy and unapologetic attitude. Born from the depths of the Pacific Northwest's indie scene, this fierce quintent is redefining what it means to rock.</p>    
+            </div>
+          </div>
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1583795310794-4168d4ff1be2?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Slide 2">
+          </div>
+          <!-- Add more slides as needed -->
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+      </div>
+
+    <div class="newsletter-box" loop="infinite"><marquee>SIGN UP FOR OUR NEWSLETTER SIGN UP FOR OUR NEWSLETTER SIGN UP FOR OUR NEWSLETTER SIGN UP FOR OUR NEWSLETTER SIGN UP FOR OUR NEWSLETTER SIGN UP FOR OUR NEWSLETTER SIGN UP FOR OUR NEWSLETTER SIGN UP FOR OUR NEWSLETTER </marquee></div>
+    <image src="thunderegg.gif" class="gif"></image>
+    <form action="action_page.php" netlify>
+        <div class="container">
+          <h2>Subscribe to our Newsletter</h2>
+          <p>You know you want to...</p>
+        </div>
+      
+        <div class="container">
+          <input type="text" placeholder="Name" name="name" required>
+          <input type="text" placeholder="Email address" name="mail" required>
+          <label>
+            <input type="checkbox" checked="checked" name="subscribe"> Bi-weekly Newsletter
+          </label>
+        </div>
+      
+        <div class="container">
+          <input type="submit" value="Subscribe">
+        </div>
+      </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+        let slideIndex = 0; // Initialize slide index
+        showSlide(slideIndex); // Show initial slide
+
+        function moveSlide(n) {
+        showSlide(slideIndex += n); // Move to next or previous slide
+        }
+
+        function showSlide(n) {
+        let slides = document.getElementsByClassName("slide");
+
+        // Ensure the slide index stays within bounds
+        if (n >= slides.length) {
+            slideIndex = 0;
+        }
+        if (n < 0) {
+            slideIndex = slides.length - 1;
+        }
+
+        // Adjust the transform property to slide the slideshow
+        let slideWidth = slides[0].offsetWidth;
+        let offset = -slideIndex * slideWidth;
+        document.querySelector(".slideshow").style.transform = `translateX(${offset}px)`;
+
+        // Remove the "active" class from all slides
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].classList.remove("active");
+        }
+
+        // Add the "active" class to the current slide
+        slides[slideIndex].classList.add("active");
+
+        // Show or hide arrows based on slide index
+        let prevButton = document.querySelector(".prev");
+        let nextButton = document.querySelector(".next");
+        if (slideIndex === 0) {
+            prevButton.style.display = "none";
+        } else {
+            prevButton.style.display = "block";
+        }
+        if (slideIndex === slides.length - 1) {
+            nextButton.style.display = "none";
+        } else {
+            nextButton.style.display = "block";
+        }
+}       
+$(document).ready(function() {
+    $('.slide a').hover(function() {
+      $('.slide img').css('-webkit-filter', 'grayscale(0%)'); // Remove grayscale filter
+      $('.slide img').css('filter', 'grayscale(0%)');
+    }, function() {
+      $('.slide img').css('-webkit-filter', 'grayscale(50%)'); // Apply grayscale filter
+      $('.slide img').css('filter', 'grayscale(50%)');
+    });
+  });
+        </script>
+</body>
+</html>

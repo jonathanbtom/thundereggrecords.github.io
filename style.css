@@ -1,0 +1,524 @@
+body {
+  font-family: Futura-Bold, Trebuchet MS, Arial, sans-serif;
+  color: white;
+  background-color: black;
+  overflow-x: hidden;
+}
+
+html,
+body {
+  -webkit-text-size-adjust: none;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.logo,
+.slide-text-left{
+  text-shadow: 3px 3px 0px rgba(150, 122, 205, 1);
+}
+
+
+menuItems {
+
+  a:hover {
+    color: azure;
+  }
+
+  a::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    background-color: #967acd;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  a:hover::before {
+    transform: scaleX(0.95);
+  }
+
+
+  ul {
+    list-style-type: none;
+    text-decoration: none;
+  }
+
+  a {
+    position: relative;
+    color: azure;
+    list-style-type: none;
+    text-decoration: none;
+  }
+
+}
+
+@media only screen and (min-width: 500px) {
+  .menu {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    background: black;
+
+    z-index: 100;
+    /* border: 1px solid greenyellow; */
+  }
+
+  .logo {
+    max-width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    font-size: 3vw;
+    z-index: 2;
+    transform: translateY(-3px);
+
+    transition: text-shadow 0.5s ease;
+  }
+
+  .logo:hover {
+    text-shadow: 0px 0px 0px rgba(150, 122, 205, 1);
+  }
+
+  menuItems {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    text-decoration: none;
+    transform: translate(100%, -100%);
+    font-size: 2vw;
+    max-width: 50%;
+    height: 100%;
+  }
+
+  .slideshow-container {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    max-width: 80%;
+    /* Adjust to fit your slideshow width */
+    margin: auto;
+  }
+
+  .slide-container {
+    position: relative;
+    overflow: hidden;
+    /* Hide overflowing content */
+  }
+
+  .slideshow {
+    display: flex;
+    transition: transform 0.5s ease;
+    /* Add transition for smooth sliding */
+  }
+
+  .slide {
+    position: relative;
+    flex: 0 0 100%;
+    height: calc(90vh - 100px);
+    opacity: 0;
+    transform: translateY(15%);
+    transition: opacity 0.5s ease;
+    border-radius: 40px;
+    overflow: hidden;
+    /* border: 1px solid greenyellow; */
+  }
+
+  .slide.active {
+    opacity: 1;
+  }
+
+  .slide img {
+    z-index: 0;
+    object-fit: fill;
+    width: 100%;
+    overflow: hidden;
+    -webkit-filter: grayscale(50%);
+    -moz-filter: grayscale(50%);
+    filter: grayscale(50%);
+    transition: all 0.5s ease;
+  }
+
+  .slide-text-left {
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    padding-left: 10%;
+    display: flex;
+    align-items: center;
+    font-size: 5vw;
+    color: azure;
+    text-shadow: 2px 2px 2px rgba(#967acd);
+    float: left;
+    text-decoration: none;
+    transform: translateY(-50%);
+    z-index: 105;
+  }
+
+  .text-box {
+    width: 60%;
+    height: auto;
+    position: absolute;
+    top: 65%;
+    margin-left: 10%;
+    background: black;
+    box-shadow: #967acd 8px 8px;
+  }
+
+  .slide-text-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .underline {
+    display: inline;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .underline:after {
+    content: "";
+    position: absolute;
+    z-index: 105;
+    right: 0;
+    width: 0;
+    bottom: -5px;
+    background: #967acd;
+    height: 4px;
+    transition-property: width;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+
+  .underline:hover:after,
+  .underline:focus:after,
+  .underline:active:after {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+
+
+  button.prev,
+  button.next {
+    position: fixed;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    border: none;
+    cursor: pointer;
+    size: 10vw;
+    padding: 10px;
+    z-index: 100;
+    text-shadow: 3px 3px 0px rgba(150, 122, 205, 1);
+    font-size: 7em;
+  }
+
+  button.prev {
+    left: 5%;
+  }
+
+  button.next {
+    right: 5%;
+  }
+
+  /* Optional: Add hover effect */
+  button.prev:hover,
+  button.next:hover {
+    background-color: rgba(0, 0, 0, 0);
+    
+  }
+
+
+  .newsletter-box {
+    width: 100%;
+    height: auto;
+    margin-top: 10%;
+    background-color: #967acd;
+  }
+
+  marquee {
+    display: flex;
+    align-items: center;
+  }
+
+
+  form {
+    z-index: 100;
+    max-width: 25%;
+    border: 4px solid black;
+    float: right;
+  }
+
+  /* Add some padding and a grey background color to containers */
+  .container {
+    float: left;
+    background-color: black;
+  }
+
+  /* Style the input elements and the submit button */
+  input[type=text],
+  input[type=submit] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid black;
+    box-sizing: border-box;
+    
+  }
+
+  /* Add margins to the checkbox */
+  input[type=checkbox] {
+    margin-top: 16px;
+  }
+
+  /* Style the submit button */
+  input[type=submit] {
+    background-color: #967acd;
+    color: black;
+    border-radius: 10px;
+  }
+
+  input[type=submit]:hover {
+    opacity: 0.8;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .menu {
+    width: auto;
+    height: auto;
+  }
+
+  .logo {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    padding-left: 0;
+    margin-left: 0;
+    font-size: 10vw;
+    z-index: 2;
+    transform: translateY(-3px);
+    transition: text-shadow 0.5s ease;
+  }
+
+  .logo:hover {
+    text-shadow: 0px 0px 0px rgba(150, 122, 205, 1);
+  }
+
+  menuItems {
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+    list-style-type: none;
+    color: white;
+    font-size: 3vw;
+    transform: translateX(-3%);
+
+  }
+
+
+  ul {
+    text-decoration: none;
+    list-style-type: none;
+  }
+
+  ul a {
+    padding: 0 0;
+    color: azure;
+    text-decoration: none;
+  }
+
+  .slideshow-container {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    max-width: 80%;
+    /* Adjust to fit your slideshow width */
+    max-height: fit-content;
+    margin: auto;
+    margin-top: 0;
+  }
+
+  .slide-container {
+    position: relative;
+    overflow: hidden;
+    /* Hide overflowing content */
+  }
+
+  .slideshow {
+    display: flex;
+    transition: transform 0.5s ease;
+    /* Add transition for smooth sliding */
+  }
+
+  .slide {
+    position: relative;
+    flex: 0 0 100%;
+    height: calc(90vh - 100px);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    overflow: hidden;
+    /* border: 1px solid greenyellow; */
+  }
+
+  .slide.active {
+    opacity: 1;
+  }
+
+  .slide img {
+    z-index: 0;
+    object-fit: scale-down;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 40px;
+    -webkit-filter: grayscale(50%);
+    -moz-filter: grayscale(50%);
+    filter: grayscale(50%);
+    transition: all 0.5s ease;
+  }
+
+  .slide-text-left {
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    padding-left: 10%;
+    display: flex;
+    align-items: center;
+    font-size: 5vw;
+    color: azure;
+    text-shadow: 2px 2px 2px rgba(#967acd);
+    float: left;
+    text-decoration: none;
+    transform: translateY(-50%);
+    z-index: 105;
+  }
+
+  .text-box {
+    width: 95%;
+    height: auto;
+    position: absolute;
+    margin-left: 8px;
+    background: black;
+    box-shadow: #967acd -8px 8px;
+  }
+
+  .slide-text-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5vw;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+  button.prev,
+  button.next {
+    position: fixed;
+    top: 50%;
+    transform: scale(5);
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 100;
+
+    font-size: 1em;
+  }
+
+  button.prev {
+    left: 5%;
+  }
+
+  button.next {
+    right: 5%;
+  }
+
+  /* Optional: Add hover effect */
+  button.prev:hover,
+  button.next:hover {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .newsletter-box {
+    width: 100%;
+    height: auto;
+    margin-top: 10%;
+    background-color: #967acd;
+  }
+
+  marquee {
+    display: flex;
+    align-items: center;
+  }
+
+
+  form {
+    z-index: 100;
+    max-width: 100%;
+    float: left;
+  }
+
+  /* Add some padding and a grey background color to containers */
+  .container {
+    float: left;
+    background-color: black;
+  }
+
+  /* Style the input elements and the submit button */
+  input[type=text],
+  input[type=submit] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid black;
+    box-sizing: border-box;
+  }
+
+  /* Add margins to the checkbox */
+  input[type=checkbox] {
+    margin-top: 16px;
+  }
+
+  /* Style the submit button */
+  input[type=submit] {
+    background-color: #967acd;
+    color: black;
+    border-radius: 10px;
+  }
+
+  input[type=submit]:hover {
+    opacity: 0.8;
+  }
+
+  .gif {
+    max-width: 25%;
+  }
+}
